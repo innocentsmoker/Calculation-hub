@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>DEFENCE TECH CALCULATOR | INNOCENT TECH</title>
+    <title>INNOCENT TECH • DEFENCE CALCULATOR | Scientific Power</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -21,86 +21,21 @@
             overflow: hidden;
             font-family: 'Inter', 'Segoe UI', 'Poppins', system-ui, sans-serif;
             position: relative;
-            background: radial-gradient(circle at 20% 30%, #0a1428, #020408);
+            background: radial-gradient(circle at 20% 30%, #0a0f1f, #010101);
         }
 
-        /* ========= DEFENCE COLOR THEME: Gold, Green, Yellow, Blue ========= */
+        /* ========= DEFENCE TECH THEME ========= */
         :root {
-            --defence-gold: #d4af37;
-            --defence-gold-glow: rgba(212, 175, 55, 0.5);
-            --defence-green: #2e8b57;
-            --defence-green-bright: #3cb371;
-            --defence-yellow: #ffd700;
-            --defence-blue: #1e3a8a;
-            --defence-blue-electric: #3b82f6;
-            --defence-dark: #0a0f1c;
+            --gold: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.6);
+            --green: #2e8b57;
+            --green-bright: #3cb371;
+            --yellow: #ffd966;
+            --blue-electric: #3b82f6;
+            --dark-bg: #03060e;
         }
 
-        /* TECH AUDIO VISUALIZER + DYNAMIC BACKGROUND */
-        .audio-visualizer {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 200;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            padding: 8px 16px;
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border: 1px solid var(--defence-gold);
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .audio-visualizer:hover {
-            transform: scale(1.02);
-            border-color: var(--defence-yellow);
-        }
-        .audio-btn {
-            background: var(--defence-gold);
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: #0a0f1c;
-            font-size: 14px;
-            transition: 0.2s;
-        }
-        .audio-btn:hover {
-            background: var(--defence-yellow);
-            transform: scale(1.05);
-        }
-        .audio-status {
-            font-size: 0.7rem;
-            color: var(--defence-yellow);
-            font-family: monospace;
-            letter-spacing: 1px;
-        }
-        .wave-bars {
-            display: flex;
-            gap: 3px;
-            align-items: center;
-            height: 24px;
-        }
-        .wave-bars span {
-            width: 3px;
-            height: 8px;
-            background: var(--defence-gold);
-            border-radius: 2px;
-            animation: waveAnim 0.8s infinite ease alternate;
-        }
-        @keyframes waveAnim {
-            0% { height: 4px; opacity: 0.4; }
-            100% { height: 18px; opacity: 1; background: var(--defence-yellow); }
-        }
-
-        /* Defence Tech animated background overlay */
+        /* animated background hexagon pattern */
         .defence-bg {
             position: fixed;
             inset: 0;
@@ -111,98 +46,127 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.03) 0px, rgba(212, 175, 55, 0.03) 2px, transparent 2px, transparent 12px),
+            background: repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.04) 0px, rgba(212, 175, 55, 0.04) 2px, transparent 2px, transparent 12px),
                         repeating-linear-gradient(135deg, rgba(59, 179, 113, 0.03) 0px, rgba(59, 179, 113, 0.03) 1px, transparent 1px, transparent 10px);
         }
-        /* Camo-tech hexagons */
-        .hex-pattern {
+        .hex-grid {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="none" stroke="%23d4af37" stroke-width="0.5" d="M50,5 L85,20 L85,50 L50,65 L15,50 L15,20 L50,5 Z M50,35 L85,50 L85,80 L50,95 L15,80 L15,50 L50,35 Z"/></svg>');
-            background-size: 55px 55px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.12"><path fill="none" stroke="%23d4af37" stroke-width="0.6" d="M50,5 L85,20 L85,50 L50,65 L15,50 L15,20 L50,5 Z M50,35 L85,50 L85,80 L50,95 L15,80 L15,50 L50,35 Z"/></svg>');
+            background-size: 58px 58px;
             pointer-events: none;
-            opacity: 0.25;
         }
-        /* INNOCENT TECH bold defence style */
-        .brand-defence {
+
+        /* TOP BAR: WhatsApp link + rotating globe */
+        .top-defence-bar {
             position: fixed;
-            top: 20px;
-            right: 25px;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
-            font-family: 'Poppins', monospace;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: rgba(3, 6, 14, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gold);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .whatsapp-link {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .whatsapp-link:hover {
+            transform: scale(1.02);
+            background: linear-gradient(135deg, #2cd76e, #0f9d6b);
+            box-shadow: 0 0 18px rgba(37, 211, 102, 0.6);
+        }
+        .rotating-globe {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0,0,0,0.6);
+            padding: 5px 18px;
+            border-radius: 60px;
+            border: 1px solid var(--gold);
+        }
+        .globe-spin {
+            animation: spinSlow 5s infinite linear;
+            font-size: 1.6rem;
+            color: var(--gold);
+        }
+        @keyframes spinSlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .innocent-badge {
             font-weight: 800;
-            font-size: 1.2rem;
-            background: linear-gradient(135deg, var(--defence-gold), var(--defence-yellow));
+            font-size: 1rem;
+            background: linear-gradient(135deg, var(--yellow), var(--gold));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-            letter-spacing: 2px;
-            backdrop-filter: blur(4px);
-            padding: 6px 14px;
-            border-radius: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            pointer-events: none;
-        }
-        .brand-defence i {
-            color: var(--defence-gold);
-            margin-right: 5px;
+            letter-spacing: 1px;
         }
 
-        /* FULLSCREEN CALCULATOR CONTAINER - FITS SCREEN PERFECTLY */
+        /* FULLSCREEN CALCULATOR */
         .calc-container {
             position: relative;
             width: 100vw;
             height: 100vh;
-            max-width: none;
-            background: rgba(8, 14, 26, 0.65);
-            backdrop-filter: blur(12px);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1.2rem;
+            padding: 80px 1.2rem 1.2rem 1.2rem;
             z-index: 20;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
         }
-
-        /* inner calculator card - responsive & fits any screen */
         .calculator-card {
             width: 100%;
-            max-width: 680px;
-            background: rgba(2, 6, 18, 0.75);
-            backdrop-filter: blur(16px);
+            max-width: 780px;
+            background: rgba(5, 10, 22, 0.82);
+            backdrop-filter: blur(18px);
             border-radius: 2rem;
             padding: 1.5rem;
-            border: 1px solid rgba(212, 175, 55, 0.6);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(59, 179, 113, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.7);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(60, 179, 113, 0.3);
             transition: all 0.2s;
         }
 
-        /* display area with defence gradient */
+        /* display */
         .display-area {
             background: rgba(0, 0, 0, 0.7);
             border-radius: 1.5rem;
             padding: 1.2rem 1.5rem;
             margin-bottom: 1.5rem;
-            border-left: 4px solid var(--defence-gold);
-            border-right: 1px solid var(--defence-green-bright);
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.6), 0 4px 12px rgba(212, 175, 55, 0.2);
+            border-left: 5px solid var(--gold);
+            border-right: 1px solid var(--green-bright);
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.6), 0 4px 12px rgba(212,175,55,0.2);
         }
         .expression {
             font-size: 1rem;
-            color: #aac8ff;
+            color: #bbd4ff;
             min-height: 2rem;
             font-family: 'Courier New', monospace;
             word-break: break-all;
         }
         .result {
-            font-size: 2.6rem;
+            font-size: 2.7rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #ffd966, var(--defence-gold));
+            background: linear-gradient(135deg, #ffdf8c, var(--gold));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -211,101 +175,89 @@
             word-break: break-word;
             line-height: 1.2;
             margin-top: 5px;
-            text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
         }
         .scientific-badge {
             display: flex;
             justify-content: space-between;
-            margin-top: 10px;
+            margin-top: 8px;
             font-size: 0.7rem;
-            color: var(--defence-yellow);
+            color: var(--yellow);
             border-top: 1px dashed rgba(212, 175, 55, 0.5);
             padding-top: 8px;
         }
 
-        /* BUTTON GRID - enhanced defence colours */
+        /* BUTTON GRID - ENLARGED & BOLD */
         .buttons-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 10px;
+            gap: 12px;
         }
         button {
-            background: rgba(20, 30, 50, 0.85);
+            background: rgba(16, 26, 46, 0.9);
             border: none;
-            padding: 0.9rem 0;
+            padding: 1rem 0;
             border-radius: 1.2rem;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #eef5ff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f0f3ff;
             cursor: pointer;
             transition: all 0.2s ease;
             backdrop-filter: blur(4px);
-            border-bottom: 2px solid var(--defence-green);
+            border-bottom: 3px solid var(--green);
             font-family: 'Inter', monospace;
+            letter-spacing: 0.5px;
         }
         button:hover {
             transform: translateY(-3px);
             background: rgba(212, 175, 55, 0.3);
-            border-bottom-color: var(--defence-gold);
-            box-shadow: 0 5px 12px rgba(212, 175, 55, 0.2);
+            border-bottom-color: var(--gold);
+            box-shadow: 0 6px 14px rgba(212, 175, 55, 0.3);
         }
         button:active {
             transform: translateY(1px);
         }
         .operator-btn {
-            background: rgba(46, 139, 87, 0.35);
-            color: #ffecb3;
-            border-bottom-color: var(--defence-gold);
+            background: rgba(46, 139, 87, 0.45);
+            color: #fff0c0;
+            border-bottom-color: var(--gold);
             font-weight: 800;
         }
         .equal-btn {
-            background: linear-gradient(135deg, var(--defence-gold), #b8860b);
+            background: linear-gradient(135deg, var(--gold), #b57c1c);
             color: #0a0c1a;
             font-weight: 900;
-            border-bottom: 2px solid var(--defence-yellow);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            border-bottom: 3px solid var(--yellow);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
         }
         .clear-btn {
-            background: rgba(180, 70, 50, 0.8);
+            background: rgba(180, 70, 50, 0.85);
             border-bottom-color: #ffaa66;
         }
         .func-btn {
-            background: rgba(30, 58, 138, 0.7);
-            border-bottom-color: var(--defence-blue-electric);
-            font-size: 0.85rem;
+            background: rgba(30, 64, 125, 0.8);
+            border-bottom-color: var(--blue-electric);
+            font-size: 0.95rem;
         }
         .span-2 {
             grid-column: span 2;
         }
-        @media (max-width: 600px) {
-            .calculator-card {
-                padding: 1rem;
-            }
-            .buttons-grid {
-                gap: 7px;
-            }
-            button {
-                padding: 0.7rem 0;
-                font-size: 0.8rem;
-            }
-            .result {
-                font-size: 1.9rem;
-            }
-            .brand-defence {
-                font-size: 0.9rem;
-                top: 10px;
-                right: 12px;
-            }
+        @media (max-width: 620px) {
+            .calculator-card { padding: 1rem; }
+            .buttons-grid { gap: 8px; }
+            button { padding: 0.7rem 0; font-size: 0.85rem; }
+            .result { font-size: 2rem; }
+            .top-defence-bar { padding: 8px 16px; }
+            .whatsapp-link { padding: 5px 14px; font-size: 0.75rem; }
+            .innocent-badge { font-size: 0.8rem; }
         }
         .info-footer {
-            margin-top: 1rem;
+            margin-top: 1.2rem;
             text-align: center;
-            font-size: 0.6rem;
-            color: #7f9fcf;
+            font-size: 0.65rem;
+            color: #8aa3cc;
             display: flex;
             justify-content: center;
             gap: 1rem;
-            flex-wrap: wrap;
             border-top: 1px solid rgba(212, 175, 55, 0.3);
             padding-top: 12px;
         }
@@ -313,37 +265,34 @@
 </head>
 <body>
 
-<!-- DEFENCE THEME BACKGROUND + INNOCENT TECH STYLISH -->
+<!-- DEFENCE TECH BACKGROUND -->
 <div class="defence-bg">
-    <div class="hex-pattern"></div>
-</div>
-<div class="brand-defence">
-    <i class="fas fa-shield-alt"></i> INNOCENT TECH • DEFENCE DIVISION
+    <div class="hex-grid"></div>
 </div>
 
-<!-- AUDIO TECH SECTION -->
-<div class="audio-visualizer" id="audioControl">
-    <div class="wave-bars" id="waveBars">
-        <span style="animation-delay: 0s"></span>
-        <span style="animation-delay: 0.2s"></span>
-        <span style="animation-delay: 0.4s"></span>
-        <span style="animation-delay: 0.1s"></span>
-        <span style="animation-delay: 0.3s"></span>
+<!-- TOP BAR: WhatsApp link + rotating globe + INNOCENT TECH -->
+<div class="top-defence-bar">
+    <a href="https://wa.me/254751833703?text=Hello%20Innocent%20Tech%20-%20I%20need%20assistance%20with%20calculator%20or%20tech%20support" 
+       class="whatsapp-link" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i>
+        <span>WHATSAPP: 0751833703</span>
+        <i class="fas fa-arrow-right"></i>
+    </a>
+    <div class="rotating-globe">
+        <i class="fas fa-globe-africa globe-spin"></i>
+        <span class="innocent-badge">⚡ INNOCENT TECH ⚡</span>
     </div>
-    <button class="audio-btn" id="toggleAudioBtn">
-        <i class="fas fa-play"></i>
-    </button>
-    <span class="audio-status" id="audioStatusText">TECH AUDIO OFF</span>
 </div>
 
+<!-- MAIN CALCULATOR - ENLARGED BUTTONS, FULL SCIENTIFIC -->
 <div class="calc-container">
     <div class="calculator-card">
         <div class="display-area">
             <div class="expression" id="expressionPreview">0</div>
             <div class="result" id="resultDisplay">0</div>
             <div class="scientific-badge">
-                <span><i class="fas fa-microchip"></i> DEFENCE MODE | rad/deg</span>
-                <span><i class="fas fa-chart-line"></i> π, e, ln, log, xʸ</span>
+                <span><i class="fas fa-microchip"></i> DEFENCE SCIENTIFIC | rad/deg</span>
+                <span><i class="fas fa-chart-line"></i> π, e, ln, log, xʸ, √</span>
             </div>
         </div>
 
@@ -398,14 +347,14 @@
         </div>
         <div class="info-footer">
             <span><i class="fas fa-calculator"></i> TACTICAL PRECISION</span>
-            <span><i class="fas fa-waveform"></i> DEFENCE AUDIO ACTIVE</span>
-            <span><i class="fas fa-shield-hawk"></i> GOLD | GREEN | BLUE</span>
+            <span><i class="fas fa-shield-alt"></i> INNOCENT TECH DEFENCE</span>
+            <span><i class="fas fa-phone-alt"></i> CONTACT WHATSAPP</span>
         </div>
     </div>
 </div>
 
 <script>
-    // ========== CALCULATOR ENGINE (Full Scientific) ==========
+    // ========= FULL SCIENTIFIC CALCULATOR ENGINE ==========
     let currentExpression = "";
     let radianMode = true;
     let lastResult = null;
@@ -417,11 +366,11 @@
     }
     function setResult(value) {
         if (value === undefined || isNaN(value) || !isFinite(value)) {
-            resultDiv.innerText = "⚡ERROR";
+            resultDiv.innerText = "⚡ ERROR";
             return;
         }
         let num = parseFloat(value);
-        if (isNaN(num)) { resultDiv.innerText = "ERROR"; return; }
+        if (isNaN(num)) { resultDiv.innerText = "INVALID"; return; }
         if (Math.abs(num) > 1e12 || (Math.abs(num) < 1e-12 && num !== 0)) {
             resultDiv.innerText = num.toExponential(10);
         } else {
@@ -494,7 +443,7 @@
     function handlePower() {
         let baseVal = currentExpression.trim() === "" ? (lastResult !== null ? lastResult : 0) : evaluateExpression(currentExpression);
         if (isNaN(baseVal)) { setResult(NaN); return; }
-        let exponent = prompt("ENTER EXPONENT (y):", "2");
+        let exponent = prompt("🔢 ENTER EXPONENT (y):", "2");
         if(exponent===null) return;
         let expNum = parseFloat(exponent);
         if(isNaN(expNum)) return;
@@ -509,7 +458,7 @@
         if(action==='equals'){
             if(currentExpression===""){ if(lastResult!==null) setResult(lastResult); return; }
             let evalResult = evaluateExpression(currentExpression);
-            if(isNaN(evalResult) || !isFinite(evalResult)){ setResult(NaN); resultDiv.innerText="INVALID"; currentExpression=""; updateDisplay(); return; }
+            if(isNaN(evalResult) || !isFinite(evalResult)){ setResult(NaN); resultDiv.innerText="❌ INVALID"; currentExpression=""; updateDisplay(); return; }
             setResult(evalResult); currentExpression = evalResult.toString(); updateDisplay(); lastResult = evalResult; return;
         }
         if(action==='backspace'){ currentExpression = currentExpression.slice(0,-1); updateDisplay(); if(currentExpression==="") setResult(0); else { let prev = evaluateExpression(currentExpression); if(!isNaN(prev) && isFinite(prev)) setResult(prev); else resultDiv.innerText="?"; } return; }
@@ -536,108 +485,44 @@
     });
     setResult(0); currentExpression=""; updateDisplay();
 
-    // ========== TECH AUDIO (Ambient defence synth + background sound) ==========
-    let audioCtx = null;
-    let isAudioPlaying = false;
-    let oscillator = null;
-    let gainNode = null;
-    let animationId = null;
-
-    const toggleBtn = document.getElementById('toggleAudioBtn');
-    const audioStatusSpan = document.getElementById('audioStatusText');
-    const waveSpans = document.querySelectorAll('#waveBars span');
-
-    function initAudio() {
-        if (audioCtx) return;
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        gainNode = audioCtx.createGain();
-        gainNode.gain.value = 0.15;
-        gainNode.connect(audioCtx.destination);
+    // ========= VOICE GREETING (Lady voice: WELCOME TO INNOCENT TECH CALCULATION) ==========
+    let greetingPlayed = false;
+    function playWelcomeVoice() {
+        if (greetingPlayed) return;
+        try {
+            const utterance = new SpeechSynthesisUtterance("WELCOME TO INNOCENT TECH CALCULATION. FOR ANY HELP CONTACT US ON WHATSAPP 0751833703.");
+            utterance.lang = "en-US";
+            utterance.rate = 0.92;
+            utterance.pitch = 1.1;
+            // Select a female voice if available
+            const voices = window.speechSynthesis.getVoices();
+            const femaleVoice = voices.find(voice => voice.name.includes("Google UK English Female") || voice.name.includes("Samantha") || voice.name.includes("Karen"));
+            if (femaleVoice) utterance.voice = femaleVoice;
+            window.speechSynthesis.cancel(); // cancel any pending
+            window.speechSynthesis.speak(utterance);
+            greetingPlayed = true;
+        } catch(e) { console.warn("voice not supported"); }
     }
 
-    function startTechAudio() {
-        if (!audioCtx) initAudio();
-        if (oscillator) {
-            try { oscillator.stop(); oscillator.disconnect(); } catch(e) {}
+    // trigger voice after user first interaction (tap anywhere or calculator use)
+    let voiceTriggered = false;
+    function triggerVoiceOnce() {
+        if (!voiceTriggered) {
+            playWelcomeVoice();
+            voiceTriggered = true;
         }
-        oscillator = audioCtx.createOscillator();
-        oscillator.type = 'sine';
-        oscillator.frequency.value = 96; // deep bass drone
-        const lfo = audioCtx.createOscillator();
-        const lfoGain = audioCtx.createGain();
-        lfo.frequency.value = 2.4;
-        lfoGain.gain.value = 18;
-        lfo.connect(lfoGain);
-        lfoGain.connect(oscillator.frequency);
-        oscillator.connect(gainNode);
-        oscillator.start();
-        lfo.start();
-        // add second harmonic for tech texture
-        const osc2 = audioCtx.createOscillator();
-        osc2.type = 'triangle';
-        osc2.frequency.value = 187;
-        const gain2 = audioCtx.createGain();
-        gain2.gain.value = 0.08;
-        osc2.connect(gain2);
-        gain2.connect(audioCtx.destination);
-        osc2.start();
-        
-        // store for stop
-        oscillator.userData = { lfo, osc2, gain2 };
-        gainNode.gain.setTargetAtTime(0.22, audioCtx.currentTime, 0.05);
-        isAudioPlaying = true;
-        audioStatusSpan.innerText = "TECH ACTIVE";
-        toggleBtn.innerHTML = '<i class="fas fa-stop"></i>';
-        // animate waves stronger
-        waveSpans.forEach(span => span.style.animationDuration = "0.4s");
     }
-
-    function stopTechAudio() {
-        if (oscillator) {
-            try {
-                oscillator.stop();
-                oscillator.disconnect();
-                if (oscillator.userData && oscillator.userData.lfo) {
-                    oscillator.userData.lfo.stop();
-                    oscillator.userData.lfo.disconnect();
-                    oscillator.userData.osc2.stop();
-                    oscillator.userData.osc2.disconnect();
-                }
-            } catch(e) {}
-            oscillator = null;
+    // listen to first click on calculator or body
+    document.body.addEventListener('click', () => { triggerVoiceOnce(); }, { once: true });
+    document.querySelector('.calculator-card').addEventListener('click', () => { triggerVoiceOnce(); }, { once: true });
+    
+    // also load voices async
+    window.speechSynthesis.onvoiceschanged = () => {
+        if (!voiceTriggered) {
+            // optional: no auto, wait for click
         }
-        if (audioCtx) {
-            // optional: suspend but not close
-        }
-        isAudioPlaying = false;
-        audioStatusSpan.innerText = "TECH AUDIO OFF";
-        toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
-        waveSpans.forEach(span => span.style.animationDuration = "0.8s");
-    }
-
-    toggleBtn.addEventListener('click', async (e) => {
-        e.stopPropagation();
-        if (!audioCtx) {
-            initAudio();
-            await audioCtx.resume();
-        }
-        if (isAudioPlaying) {
-            stopTechAudio();
-            if (audioCtx) audioCtx.suspend();
-        } else {
-            await audioCtx.resume();
-            startTechAudio();
-        }
-    });
-
-    // optional: start suspended, user interaction first click anywhere to enable audio context
-    document.body.addEventListener('click', () => {
-        if (audioCtx && audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-    }, { once: true });
-
-    // visual wave animation sync (already css)
+    };
+    // small fallback: show that voice is ready
 </script>
 </body>
 </html>
