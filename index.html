@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>NEXUS SCIENTIFIC CALCULATOR | Advanced Mathematics</title>
+    <title>NEXUS SCIENTIFIC CALCULATOR | INNOCENT TECH</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -22,9 +22,119 @@
             align-items: center;
             padding: 1.5rem;
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* animated background particles */
+        /* INNOCENT TECH stylish background overlay - elegant and modern */
+        .innocent-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .innocent-bg::before {
+            content: "INNOCENT TECH";
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            font-size: 5rem;
+            font-weight: 800;
+            font-family: 'Poppins', 'Inter', sans-serif;
+            color: rgba(240, 178, 122, 0.08);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transform: rotate(-12deg);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            text-shadow: 0 0 15px rgba(240, 178, 122, 0.2);
+            animation: slowDrift 28s infinite alternate ease-in-out;
+        }
+
+        .innocent-bg::after {
+            content: "✦ INNOCENT TECH ✦";
+            position: absolute;
+            bottom: 12%;
+            right: 2%;
+            font-size: 2.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', monospace;
+            color: rgba(100, 180, 250, 0.1);
+            letter-spacing: 0.15em;
+            transform: rotate(5deg);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            backdrop-filter: blur(2px);
+            text-shadow: 0 0 8px rgba(100, 180, 250, 0.3);
+            animation: glowPulse 6s infinite alternate;
+        }
+
+        /* additional floating tech lines for style */
+        .tech-particles {
+            position: fixed;
+            inset: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(240, 178, 122, 0.02) 0px, rgba(240, 178, 122, 0.02) 2px, transparent 2px, transparent 8px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .tech-particles span {
+            position: absolute;
+            font-family: monospace;
+            font-weight: bold;
+            opacity: 0.2;
+            color: #f0b27a;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            animation: floatText 18s infinite linear;
+        }
+
+        @keyframes slowDrift {
+            0% {
+                transform: rotate(-12deg) translateX(0%) translateY(0%);
+                opacity: 0.06;
+            }
+            100% {
+                transform: rotate(-8deg) translateX(3%) translateY(2%);
+                opacity: 0.12;
+            }
+        }
+
+        @keyframes glowPulse {
+            0% {
+                text-shadow: 0 0 5px rgba(100, 180, 250, 0.2);
+                opacity: 0.08;
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(240, 178, 122, 0.5);
+                opacity: 0.18;
+            }
+        }
+
+        @keyframes floatText {
+            0% {
+                transform: translateX(-20%) translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateX(120%) translateY(-30px) rotate(3deg);
+                opacity: 0;
+            }
+        }
+
+        /* animated background particles (original but enhanced) */
         body::before {
             content: '';
             position: fixed;
@@ -33,6 +143,7 @@
                               radial-gradient(circle at 75% 85%, rgba(240, 178, 122, 0.08) 1.8%, transparent 2%);
             background-size: 55px 55px, 45px 45px;
             pointer-events: none;
+            z-index: 0;
         }
 
         .calc-container {
@@ -45,6 +156,27 @@
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(240, 178, 122, 0.3);
             transition: all 0.2s;
             border: 1px solid rgba(240, 178, 122, 0.4);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* subtle watermark integration inside glass card (elegant) */
+        .calc-container::after {
+            content: "⚡ INNOCENT TECH ⚡";
+            position: absolute;
+            bottom: 12px;
+            right: 20px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: rgba(240, 178, 122, 0.35);
+            font-family: monospace;
+            letter-spacing: 1px;
+            background: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+            z-index: 2;
         }
 
         /* display section */
@@ -162,6 +294,11 @@
             .result {
                 font-size: 2rem;
             }
+            .calc-container::after {
+                font-size: 0.5rem;
+                bottom: 6px;
+                right: 12px;
+            }
         }
 
         .info-footer {
@@ -177,6 +314,11 @@
     </style>
 </head>
 <body>
+
+<!-- Stylish INNOCENT TECH Background Elements (elegant, modern, and prominent) -->
+<div class="innocent-bg"></div>
+<div class="tech-particles" id="techParticles"></div>
+
 <div class="calc-container">
     <div class="display-area">
         <div class="expression" id="expressionPreview">0</div>
@@ -245,11 +387,11 @@
 
 <script>
     // ------------------------------------------------
-    // NEXUS SCIENTIFIC CALCULATOR · full precision engine
-    // supports: trigonometric, powers, roots, factorial, constants, percent, etc.
+    // NEXUS SCIENTIFIC CALCULATOR · enhanced with INNOCENT TECH background style
+    // full precision engine with trigonometric, powers, roots, factorial, constants
     // ------------------------------------------------
-    let currentExpression = "";    // stored expression string
-    let radianMode = true;         // true = rad, false = deg
+    let currentExpression = "";
+    let radianMode = true;
     let lastResult = null;
 
     const expressionDiv = document.getElementById("expressionPreview");
@@ -264,7 +406,6 @@
     }
 
     function setResult(value) {
-        // format result: avoid scientific notation too aggressively, but keep readability
         if (value === undefined || isNaN(value) || !isFinite(value)) {
             resultDiv.innerText = "Error";
             return;
@@ -274,11 +415,9 @@
             resultDiv.innerText = "Error";
             return;
         }
-        // format nicely
         if (Math.abs(num) > 1e12 || (Math.abs(num) < 1e-12 && num !== 0)) {
             resultDiv.innerText = num.toExponential(10);
         } else {
-            // trim trailing .0
             let str = num.toString();
             if (str.includes('.') && str.replace(/\.?0+$/, '').length < 15) {
                 resultDiv.innerText = parseFloat(num.toFixed(10)).toString();
@@ -289,91 +428,49 @@
         lastResult = num;
     }
 
-    // evaluate expression safely
     function evaluateExpression(expr) {
-        // replace custom tokens for scientific functions
         let processed = expr.trim();
         if (processed === "") return 0;
 
-        // replace constants: π and e
         processed = processed.replace(/π/g, 'PI');
         processed = processed.replace(/e(?![a-z])/g, 'E');
         
-        // handle factorial custom: n! 
         processed = processed.replace(/(\d+(?:\.\d+)?|\([^()]+\)|π|E)!/g, (match, numStr) => {
             let num = evaluateSimpleNumber(numStr);
             if (isNaN(num)) return 'NaN';
             return factorial(num);
         });
 
-        // handle percentage: 50% => 0.5 but careful: treat as /100
         processed = processed.replace(/(\d+(?:\.\d+)?)%/g, (match, p) => {
             return `(${p}/100)`;
         });
         
-        // handle x², x³, sqrt, abs, ceil, floor, 1/x, exp, ln, log, power xʸ
-        // custom functions using Function constructor but with safe context
-        // convert √(9) to sqrt(9)
         processed = processed.replace(/√\(([^)]+)\)/g, 'sqrt($1)');
         processed = processed.replace(/√(\d+(?:\.\d+)?)/g, 'sqrt($1)');
-        
         processed = processed.replace(/x²/g, '^2');
         processed = processed.replace(/x³/g, '^3');
-        processed = processed.replace(/\^/g, '**'); // exponentiation
-        
-        processed = processed.replace(/1\/x/g, '1/x');
-        // handle 1/x in expression: replace 1/x with (1/x) careful
+        processed = processed.replace(/\^/g, '**');
         processed = processed.replace(/1\/x/g, '(1/x)');
-        
-        // absolute value
         processed = processed.replace(/\|x\|/g, 'abs(x)');
-        // we will replace dynamic function calls after
         
-        // replace floor, ceil, ln, log, exp, sin, cos, tan, pow
         processed = processed.replace(/floor\(/g, 'Math.floor(');
         processed = processed.replace(/ceil\(/g, 'Math.ceil(');
         processed = processed.replace(/abs\(/g, 'Math.abs(');
         processed = processed.replace(/ln\(/g, 'Math.log(');
-        processed = processed.replace(/log\(/g, 'log10('); // custom log10
+        processed = processed.replace(/log\(/g, 'log10(');
         processed = processed.replace(/exp\(/g, 'Math.exp(');
         processed = processed.replace(/sin\(/g, 'sinFunc(');
         processed = processed.replace(/cos\(/g, 'cosFunc(');
         processed = processed.replace(/tan\(/g, 'tanFunc(');
         processed = processed.replace(/sqrt\(/g, 'Math.sqrt(');
         
-        // handle xʸ: a**b already, but ensure explicit power
-        processed = processed.replace(/(\d+(?:\.\d+)?|\)|π|E)\s*\*\*\s*([^+\-*/]+)/g, 'Math.pow($1, $2)');
-        
-        // dynamic function for power if needed
-        function sinFunc(x) { 
-            let val = radianMode ? x : x * Math.PI / 180; 
-            return Math.sin(val); 
-        }
-        function cosFunc(x) { 
-            let val = radianMode ? x : x * Math.PI / 180; 
-            return Math.cos(val); 
-        }
-        function tanFunc(x) { 
-            let val = radianMode ? x : x * Math.PI / 180; 
-            return Math.tan(val); 
-        }
+        function sinFunc(x) { let val = radianMode ? x : x * Math.PI / 180; return Math.sin(val); }
+        function cosFunc(x) { let val = radianMode ? x : x * Math.PI / 180; return Math.cos(val); }
+        function tanFunc(x) { let val = radianMode ? x : x * Math.PI / 180; return Math.tan(val); }
         function log10(x) { return Math.log10(x); }
-        function factorial(n) { 
-            if (n < 0) return NaN;
-            if (Math.floor(n) !== n) return NaN;
-            if (n > 170) return Infinity;
-            let f = 1;
-            for (let i = 2; i <= n; i++) f *= i;
-            return f;
-        }
-        function evaluateSimpleNumber(strExpr) {
-            try {
-                const fn = new Function('return (' + strExpr + ')');
-                return fn();
-            } catch(e) { return NaN; }
-        }
+        function factorial(n) { if (n < 0 || Math.floor(n) !== n) return NaN; if (n > 170) return Infinity; let f = 1; for (let i = 2; i <= n; i++) f *= i; return f; }
+        function evaluateSimpleNumber(strExpr) { try { const fn = new Function('return (' + strExpr + ')'); return fn(); } catch(e) { return NaN; } }
         
-        // final evaluation with safe Function
         try {
             const evaluator = new Function('sinFunc', 'cosFunc', 'tanFunc', 'log10', 'factorial', 'Math', 
                 `"use strict"; return (${processed});`);
@@ -381,12 +478,10 @@
             if (isNaN(result) || !isFinite(result)) throw new Error("math error");
             return result;
         } catch (err) {
-            console.error(err);
             return NaN;
         }
     }
     
-    // factorial helper also for buttons
     function computeFactorial(num) {
         if (num < 0 || Math.floor(num) !== num) return NaN;
         if (num > 170) return Infinity;
@@ -395,7 +490,6 @@
         return f;
     }
 
-    // process single function on current expression or last result
     function applyUnaryFunction(funcName) {
         let currentValue = currentExpression.trim() === "" ? (lastResult !== null ? lastResult : 0) : evaluateExpression(currentExpression);
         if (isNaN(currentValue)) {
@@ -425,7 +519,7 @@
             setResult(NaN);
             resultDiv.innerText = "Math Error";
             currentExpression = "";
-            expressionDiv.innerText = "0";
+            updateDisplay();
             return;
         }
         setResult(computed);
@@ -434,7 +528,6 @@
         lastResult = computed;
     }
     
-    // power function xʸ : prompt or handle via expression
     function handlePower() {
         let baseVal = currentExpression.trim() === "" ? (lastResult !== null ? lastResult : 0) : evaluateExpression(currentExpression);
         if (isNaN(baseVal)) {
@@ -452,7 +545,6 @@
         lastResult = result;
     }
 
-    // event binding
     function handleButtonClick(value, type, action, func, op, constVal) {
         if (action === 'clear') {
             currentExpression = "";
@@ -527,7 +619,6 @@
         }
     }
 
-    // attach event listeners dynamically
     const buttons = document.querySelectorAll('#calcGrid button');
     buttons.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -558,10 +649,36 @@
         });
     });
     
-    // initial reset
     setResult(0);
     currentExpression = "";
     updateDisplay();
+
+    // generate floating 'INNOCENT TECH' particles as stylish background bonus
+    function createFloatingTechParticles() {
+        const container = document.getElementById('techParticles');
+        if (!container) return;
+        const texts = ['IT', 'INNOCENT', '⚡ TECH ⚡', 'INNO', 'NEXUS', 'CORE', 'AI', 'π'];
+        for (let i = 0; i < 28; i++) {
+            let span = document.createElement('span');
+            let randomText = texts[Math.floor(Math.random() * texts.length)];
+            span.innerText = randomText === 'INNOCENT' ? 'INNOCENT TECH' : randomText;
+            span.style.position = 'absolute';
+            span.style.left = Math.random() * 100 + '%';
+            span.style.top = Math.random() * 100 + '%';
+            span.style.fontSize = (Math.random() * 1.2 + 0.6) + 'rem';
+            span.style.opacity = (Math.random() * 0.2 + 0.05);
+            span.style.animationDelay = (Math.random() * 20) + 's';
+            span.style.animationDuration = (Math.random() * 18 + 12) + 's';
+            span.style.whiteSpace = 'nowrap';
+            span.style.fontWeight = '600';
+            span.style.fontFamily = "'Poppins', monospace";
+            span.style.color = '#f0b27a';
+            span.style.textShadow = '0 0 3px rgba(0,0,0,0.3)';
+            span.style.pointerEvents = 'none';
+            container.appendChild(span);
+        }
+    }
+    createFloatingTechParticles();
 </script>
 </body>
-  </html>
+</html>
